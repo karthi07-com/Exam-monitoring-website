@@ -1,0 +1,552 @@
+/* ===============================
+   GLOBAL
+=================================*/
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #e8f0ff, #f5f7fa);
+}
+
+/* ===============================
+   CONTAINERS & CARDS
+=================================*/
+
+.container {
+  max-width: 1100px;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+.card {
+  background: white;
+  padding: 25px;
+  border-radius: 14px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  margin-bottom: 20px;
+  transition: 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.12);
+}
+
+/* ===============================
+   HEADINGS
+=================================*/
+
+h2 {
+  margin-bottom: 20px;
+  color: #1a237e;
+  font-size: 26px;
+}
+
+h3 {
+  margin-bottom: 10px;
+}
+
+/* ===============================
+   INPUTS
+=================================*/
+
+input,
+select {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  transition: 0.3s;
+}
+
+input:focus,
+select:focus {
+  outline: none;
+  border-color: #3f51b5;
+  box-shadow: 0 0 6px rgba(63, 81, 181, 0.25);
+}
+
+/* ===============================
+   BUTTONS
+=================================*/
+
+button {
+  padding: 10px 18px;
+  margin: 8px 5px 8px 0;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.btn-primary {
+  background: #3f51b5;
+  color: white;
+}
+
+.btn-primary:hover {
+  background: #283593;
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background: #9e9e9e;
+  color: white;
+}
+
+.btn-secondary:hover {
+  background: #757575;
+  transform: translateY(-2px);
+}
+
+.btn-danger {
+  background: #e53935;
+  color: white;
+}
+
+.btn-danger:hover {
+  background: #c62828;
+  transform: translateY(-2px);
+}
+
+/* ===============================
+   DASHBOARD GRID
+=================================*/
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+/* ===============================
+   AUTH (LOGIN / REGISTER)
+=================================*/
+
+.auth-bg {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #5f6afc, #9a4dff);
+  padding: 20px;
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 420px;
+  padding: 40px 30px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(15px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+  color: white;
+  text-align: center;
+}
+
+.auth-title {
+  margin-bottom: 25px;
+}
+
+/* Floating Input */
+
+.floating-input {
+  position: relative;
+  margin-bottom: 22px;
+}
+
+.floating-input input {
+  width: 100%;
+  padding: 14px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  font-size: 14px;
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.floating-input label {
+  position: absolute;
+  left: 12px;
+  top: 14px;
+  font-size: 13px;
+  color: #555;
+  pointer-events: none;
+  transition: 0.3s;
+}
+
+.floating-input input:focus + label,
+.floating-input input:not(:placeholder-shown) + label {
+  top: -8px;
+  left: 8px;
+  font-size: 11px;
+  background: #5f6afc;
+  color: white;
+  padding: 2px 6px;
+  border-radius: 6px;
+}
+
+.eye-toggle {
+  position: absolute;
+  right: 12px;
+  top: 14px;
+  cursor: pointer;
+}
+
+.auth-footer {
+  margin-top: 18px;
+  font-size: 14px;
+}
+
+.auth-footer span {
+  cursor: pointer;
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+/* ===============================
+   LEADERBOARD
+=================================*/
+
+.page-title {
+  text-align: center;
+  margin-bottom: 25px;
+  font-size: 26px;
+}
+
+.leaderboard-search {
+  width: 100%;
+  padding: 10px 14px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
+
+.leaderboard-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.leaderboard-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 22px;
+  border-radius: 14px;
+  background: white;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  transition: 0.3s ease;
+}
+
+.leaderboard-card:hover {
+  transform: translateY(-4px);
+}
+
+.rank-badge {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.percentage {
+  font-weight: bold;
+}
+
+/* Highlight logged-in student */
+
+.current-user {
+  border: 2px solid #4caf50;
+  background: #e8f5e9;
+}
+
+/* ===============================
+   RESPONSIVE
+=================================*/
+
+@media (max-width: 1024px) {
+  .container {
+    padding: 15px;
+  }
+
+  .dashboard-grid {
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .auth-card {
+    padding: 30px 20px;
+  }
+
+  .leaderboard-card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  button {
+    width: 100%;
+    margin: 6px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  h2 {
+    font-size: 22px;
+  }
+
+  .container {
+    margin: 20px auto;
+  }
+
+  .card {
+    padding: 18px;
+  }
+}
+.dashboard-header {
+  margin-bottom: 25px;
+}
+
+.dashboard-subtitle {
+  color: #666;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+.exam-card {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.exam-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.exam-duration {
+  font-size: 13px;
+  background: #e8eaf6;
+  padding: 4px 10px;
+  border-radius: 8px;
+}
+
+.exam-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.exam-result {
+  background: #f5f7fa;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.analytics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 15px;
+}
+
+/* ===============================
+   TOP NAVBAR (replaces sidebar)
+=================================*/
+
+.layout-wrapper {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #e8f0ff, #f5f7fa);
+}
+
+.topnav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 32px;
+  height: 64px;
+  background: white;
+  border-bottom: 1px solid #e0e4f0;
+  box-shadow: 0 2px 10px rgba(63, 81, 181, 0.08);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.topnav-left {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+}
+
+.topnav-logo {
+  font-size: 18px;
+  font-weight: 700;
+  color: #3f51b5;
+  letter-spacing: -0.3px;
+}
+
+.topnav-links {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.topnav-btn {
+  background: none;
+  border: none;
+  color: #888;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin: 0;
+  transition: 0.2s;
+}
+
+.topnav-btn:hover {
+  background: #f0f2ff;
+  color: #3f51b5;
+  transform: none;
+}
+
+.topnav-btn-active {
+  background: #e8eaf6;
+  color: #3f51b5;
+}
+
+.topnav-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.topnav-user {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #f5f7ff;
+  border: 1px solid #e0e4f0;
+  border-radius: 100px;
+  padding: 6px 14px 6px 6px;
+}
+
+.topnav-avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #3f51b5, #7986cb);
+  color: white;
+  font-size: 13px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.topnav-username {
+  color: #1a237e;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.topnav-role {
+  font-size: 11px;
+  font-weight: 600;
+  color: #3f51b5;
+  background: #e8eaf6;
+  padding: 2px 8px;
+  border-radius: 100px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.topnav-logout {
+  background: #fff0f0;
+  border: 1px solid #ffcdd2;
+  color: #e53935;
+  font-size: 13px;
+  font-weight: 500;
+  padding: 8px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin: 0;
+  transition: 0.2s;
+}
+
+.topnav-logout:hover {
+  background: #ffebee;
+  transform: none;
+}
+
+.topnav-main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 32px;
+}
+
+/* ===============================
+   ANALYTICS LABELS & VALUES
+=================================*/
+
+.analytics-label {
+  font-size: 12px;
+  color: #888;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 6px;
+}
+
+.analytics-value {
+  font-size: 26px;
+  font-weight: 700;
+  color: #1a237e;
+}
+
+/* ===============================
+   EXAM CARD - ATTEMPTED STATE
+=================================*/
+
+.exam-card-attempted {
+  border-left: 4px solid #4caf50;
+}
+
+/* ===============================
+   RESPONSIVE NAVBAR
+=================================*/
+
+@media (max-width: 768px) {
+  .topnav {
+    padding: 0 16px;
+    flex-wrap: wrap;
+    height: auto;
+    gap: 10px;
+    padding: 12px 16px;
+  }
+
+  .topnav-left {
+    gap: 16px;
+  }
+
+  .topnav-username {
+    display: none;
+  }
+
+  .topnav-main {
+    padding: 24px 16px;
+  }
+
+  button {
+    width: auto;
+  }
+}
