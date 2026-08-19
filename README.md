@@ -137,72 +137,8 @@ Online-Examination-System/
 
 > The exact folder names may differ depending on your current project structure.
 
-## Authentication Flow
-
-```text
-User
- │
- ▼
-Login
- │
- ▼
-Backend validates credentials
- │
- ├── bcryptjs → Password verification
- │
- ▼
-JWT Token Generated
- │
- ▼
-Token sent to Client
- │
- ▼
-Protected API Request
- │
- ▼
-JWT Verification Middleware
- │
- ▼
-Role Authorization
- │
- ▼
-Access Granted
-```
-
-## Examination Flow
-
-```text
-Student Login
-      │
-      ▼
-View Available Exams
-      │
-      ▼
-Select Exam
-      │
-      ▼
-Start Exam
-      │
-      ▼
-Proctoring Activated
-      │
-      ▼
-Answer Questions
-      │
-      ├──── Tab Switch ────► Violation Recorded
-      │
-      ▼
-Timer Ends / Submit
-      │
-      ▼
-Evaluate Answers
-      │
-      ▼
-Store Result
-      │
-      ▼
-Display Result
-```
+## Work Flow
+  <img width="320" height="480" alt="image" src="https://github.com/user-attachments/assets/597ac226-a17e-41af-b4df-04b8ef83da22" />
 
 ## Testing
 
