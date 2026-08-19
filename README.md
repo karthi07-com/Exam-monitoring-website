@@ -137,29 +137,6 @@ Online-Examination-System/
 
 > The exact folder names may differ depending on your current project structure.
 
-## API Endpoints
-
-### Authentication
-
-| Method | Endpoint             | Description         |
-| ------ | -------------------- | ------------------- |
-| POST   | `/api/auth/register` | Register a new user |
-| POST   | `/api/auth/login`    | Login user          |
-
-### Examination
-
-| Method | Endpoint                       | Description                   |
-| ------ | ------------------------------ | ----------------------------- |
-| POST   | `/api/exams`                   | Create an examination         |
-| GET    | `/api/exams`                   | Get available examinations    |
-| PUT    | `/api/exams/:examId`           | Update an examination         |
-| POST   | `/api/exams/:examId/question`  | Add a question                |
-| GET    | `/api/exams/:examId/questions` | Get examination questions     |
-| POST   | `/api/exams/:examId/start`     | Start an examination          |
-| POST   | `/api/exams/:examId/submit`    | Submit an examination         |
-| POST   | `/api/exams/:examId/violation` | Record a proctoring violation |
-| GET    | `/api/exams/results/all`       | View examination results      |
-
 ## Authentication Flow
 
 ```text
@@ -225,97 +202,6 @@ Store Result
       │
       ▼
 Display Result
-```
-
-## Installation
-
-### 1. Clone the Repository
-
-```bash
-git clone https://github.com/your-username/online-examination-system.git
-```
-
-```bash
-cd online-examination-system
-```
-
-### 2. Backend Setup
-
-Navigate to the backend directory:
-
-```bash
-cd backend
-```
-
-Install dependencies:
-
-```bash
-npm install
-```
-
-Create a `.env` file:
-
-```env
-MONGO_URI=your_mongodb_connection_string
-JWT_SECRET=your_jwt_secret
-PORT=5000
-```
-
-Start the backend server:
-
-```bash
-npm start
-```
-
-The backend will run on:
-
-```text
-http://localhost:5000
-```
-
-### 3. Frontend Setup
-
-Open another terminal and navigate to the frontend:
-
-```bash
-cd frontend
-```
-
-Install dependencies:
-
-```bash
-npm install
-```
-
-Start the React application:
-
-```bash
-npm start
-```
-
-The frontend will run on:
-
-```text
-http://localhost:3000
-```
-
-## Environment Variables
-
-The following environment variables are required:
-
-| Variable     | Description                            |
-| ------------ | -------------------------------------- |
-| `MONGO_URI`  | MongoDB connection string              |
-| `JWT_SECRET` | Secret key used for JWT authentication |
-| `PORT`       | Backend server port                    |
-
-**Important:** Never upload your `.env` file or expose your MongoDB credentials and JWT secret on GitHub.
-
-Add this to `.gitignore`:
-
-```text
-.env
-node_modules/
 ```
 
 ## Testing
